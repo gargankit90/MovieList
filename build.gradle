@@ -23,7 +23,7 @@ buildscript {
             'material'           : '1.2.1',
             'minSdk'             : 23,
             'moshi'              : '1.9.3',
-            'navigation'         : '2.3.0',
+            'navigation'         : '2.3.2',
             'okhttp'             : '4.8.1',
             'retrofit'           : '2.9.0',
             'targetSdk'          : 30,

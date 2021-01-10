@@ -49,6 +49,47 @@ dependencies {
     // ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 
+    // Annotation
+    implementation "androidx.annotation:annotation:${versions.annotation}"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+
+    // Network
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    // Moshi
+    implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+    implementation "com.squareup.moshi:moshi:${versions.moshi}"
+    // okhttp
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp}"
+    implementation "com.squareup.moshi:moshi-adapters:${versions.moshi}"
+
+    // Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+
+    // Data Binding
+    kapt "androidx.databinding:databinding-compiler:${versions.databinding}"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+
     // Test
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.androidxTestExt}"
