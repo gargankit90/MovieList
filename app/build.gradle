@@ -49,9 +49,6 @@ dependencies {
     // ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 
-    // Annotation
-    implementation "androidx.annotation:annotation:${versions.annotation}"
-
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
 
@@ -83,9 +80,6 @@ dependencies {
     // Navigation Component
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
-
-    // Data Binding
-    kapt "androidx.databinding:databinding-compiler:${versions.databinding}"
 
     // Timber
     implementation "com.jakewharton.timber:timber:${versions.timber}"
