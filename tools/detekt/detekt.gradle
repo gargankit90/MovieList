@@ -1,0 +1,5 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    config = files("$rootDir/tools/detekt/detekt-config.yml")
+}
