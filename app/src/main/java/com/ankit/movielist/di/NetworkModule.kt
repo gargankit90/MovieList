@@ -1,6 +1,5 @@
 package com.ankit.movielist.di
 
-
 import com.ankit.movielist.BuildConfig
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -77,5 +76,4 @@ object NetworkModule {
     @ApplicationScope
     @JvmStatic
     fun provideServiceUrl() = "https://www.omdbapi.com/"
-
 }

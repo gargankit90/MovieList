@@ -7,7 +7,7 @@ import com.ankit.movielist.di.ComponentManager
 /**
  * Created by Gauri Gadkari on 1/9/21.
  */
-class MovieApplication: Application() {
+class MovieApplication : Application() {
 
     lateinit var appComponent: AppComponent
 
@@ -16,5 +16,4 @@ class MovieApplication: Application() {
         ComponentManager.application = this
         appComponent = ComponentManager.appComponent
     }
-
 }
