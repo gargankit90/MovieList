@@ -1,6 +1,7 @@
 package com.ankit.movielist.di
 
 import com.ankit.movielist.BuildConfig
+import com.ankit.movielist.search.api.SearchApi
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -76,4 +77,14 @@ object NetworkModule {
     @ApplicationScope
     @JvmStatic
     fun provideServiceUrl() = "https://www.omdbapi.com/"
+
+    @Provides
+    @ApplicationScope
+    @JvmStatic
+    fun provideSearchApi(
+        retrofit: Retrofit
+    ): SearchApi {
+        return retrofit
+            .create(SearchApi::class.java)
+    }
 }
