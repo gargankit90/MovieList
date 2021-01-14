@@ -66,6 +66,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
 
+    // Paging
+    implementation "androidx.paging:paging-runtime:${versions.paging}"
+
     // Network
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"

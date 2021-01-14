@@ -1,5 +1,6 @@
 package com.ankit.movielist.di
 
+import com.ankit.movielist.search.api.SearchApi
 import dagger.Component
 
 @Component(
@@ -15,4 +16,6 @@ interface AppComponent {
         fun build(): AppComponent
         fun appModule(module: AppModule): Builder
     }
+
+    fun provideSearchApi(): SearchApi
 }

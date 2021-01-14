@@ -27,23 +27,8 @@ data class Search(
     val imdbID: String,
 
     @Json(name = "Type")
-    val type: Type,
+    val type: String,
 
     @Json(name = "Poster")
     val poster: String
 )
-
-enum class Type(val value: String) {
-    Movie("movie"),
-    Series("series"),
-    Episode("episode");
-
-    companion object {
-        public fun fromValue(value: String): Type = when (value) {
-            "movie" -> Movie
-            "series" -> Series
-            "episode" -> Episode
-            else -> throw IllegalArgumentException()
-        }
-    }
-}

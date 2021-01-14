@@ -25,6 +25,7 @@ buildscript {
             'moshi'              : '1.9.3',
             'navigation'         : '2.3.2',
             'okhttp'             : '4.8.1',
+            'paging'             : '3.0.0-alpha11',
             'retrofit'           : '2.9.0',
             'targetSdk'          : 30,
             'timber'             : '4.7.1',
