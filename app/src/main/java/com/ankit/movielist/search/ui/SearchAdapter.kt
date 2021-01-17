@@ -4,14 +4,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.ankit.movielist.R
 import com.ankit.movielist.databinding.SearchItemBinding
 import com.ankit.movielist.search.model.Search
-import com.bumptech.glide.Glide
 
 class SearchAdapter :
-    PagingDataAdapter<Search, SearchAdapter.SearchViewHolder>(DiffUtilCallBack()) {
+    PagingDataAdapter<Search, SearchViewHolder>(DiffUtilCallBack()) {
+
+    companion object {
+        // Define Loading ViewType
+        const val LOADING_ITEM = 0
+
+        // Define Search ViewType
+        const val SEARCH_ITEM = 1
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val itemBinding = SearchItemBinding.inflate(
@@ -26,19 +31,9 @@ class SearchAdapter :
         getItem(position)?.let { holder.bindSearch(it) }
     }
 
-    class SearchViewHolder(private val itemBinding: SearchItemBinding) :
-        RecyclerView.ViewHolder(itemBinding.root) {
-
-        fun bindSearch(item: Search) {
-            itemBinding.movieTitle.text = item.title
-            itemBinding.movieYear.text = item.year
-            Glide.with(itemBinding.root)
-                .load(item.poster)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .into(itemBinding.moviePoster)
-        }
-
+    override fun getItemViewType(position: Int): Int {
+        // set ViewType
+        return if (position == itemCount) SEARCH_ITEM else LOADING_ITEM
     }
 }
 

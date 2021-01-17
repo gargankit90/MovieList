@@ -2,4 +2,6 @@
     <string name="app_name">MovieList</string>
     <string name="bottom_navigation_search">Search</string>
     <string name="bottom_navigation_playlist">Play List</string>
+    <string name="retry">Retry</string>
+    <string name="enter_movie">Enter Movie</string>
 </resources>
