@@ -9,12 +9,31 @@
         android:id="@+id/searchFragment"
         android:name="com.ankit.movielist.search.ui.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_search_fragment_to_search_detail_fragment"
+            app:destination="@id/searchDetailFragment"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/playListFragment"
         android:name="com.ankit.movielist.playlist.PlayListFragment"
         android:label="fragment_play_list"
         tools:layout="@layout/fragment_play_list" />
+
+    <fragment
+        android:id="@+id/searchDetailFragment"
+        android:name="com.ankit.movielist.search.ui.searchdetail.SearchDetailFragment"
+        android:label="fragment_search_detail"
+        tools:layout="@layout/fragment_search_detail" >
+
+        <argument
+            android:name="searchItem"
+            app:argType="com.ankit.movielist.search.model.Search"
+            />
+
+    </fragment>
 
 </navigation>

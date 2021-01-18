@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.ankit.movielist.databinding.SearchItemBinding
 import com.ankit.movielist.search.model.Search
 
-class SearchAdapter :
+class SearchAdapter(
+    private val onSearchItemClickListener: SearchItemOnClickListener
+) :
     PagingDataAdapter<Search, SearchViewHolder>(DiffUtilCallBack()) {
 
     companion object {
@@ -24,7 +26,7 @@ class SearchAdapter :
             parent,
             false
         )
-        return SearchViewHolder(itemBinding)
+        return SearchViewHolder(itemBinding, onSearchItemClickListener)
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
@@ -48,4 +50,8 @@ class DiffUtilCallBack : DiffUtil.ItemCallback<Search>() {
             oldItem.year == newItem.year &&
             oldItem.type == newItem.type
     }
+}
+
+interface SearchItemOnClickListener {
+    fun onSearchItemClicked(searchItem: Search)
 }

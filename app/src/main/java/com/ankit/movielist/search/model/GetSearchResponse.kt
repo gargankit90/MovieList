@@ -1,7 +1,9 @@
 package com.ankit.movielist.search.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 data class GetSearchResponse(
@@ -15,6 +17,7 @@ data class GetSearchResponse(
     val response: String
 )
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class Search(
     @Json(name = "Title")
@@ -31,4 +34,4 @@ data class Search(
 
     @Json(name = "Poster")
     val poster: String
-)
+) : Parcelable

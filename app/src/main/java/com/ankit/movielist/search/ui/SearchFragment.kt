@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.ankit.movielist.databinding.FragmentSearchBinding
 import com.ankit.movielist.di.search.inject
+import com.ankit.movielist.search.model.Search
 import com.ankit.movielist.ui.viewLifecycle
 import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
@@ -21,7 +23,17 @@ class SearchFragment : Fragment() {
     @Inject
     lateinit var viewModel: SearchViewModel
 
-    private val adapter: SearchAdapter = SearchAdapter()
+    private val adapter: SearchAdapter = SearchAdapter(
+        object : SearchItemOnClickListener {
+            override fun onSearchItemClicked(searchItem: Search) {
+                val navDirection = SearchFragmentDirections
+                    .actionSearchFragmentToSearchDetailFragment(
+                        searchItem
+                    )
+                findNavController().navigate(navDirection)
+            }
+        }
+    )
     private var binding: FragmentSearchBinding by viewLifecycle()
     private var userQuery: String? = null
 
