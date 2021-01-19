@@ -6,5 +6,6 @@
     <string name="enter_movie">Enter Movie</string>
     <string name="add_to_playlist">Add to playlist</string>
     <string name="remove_from_playlist">Remove from playlist</string>
+    <string name="network_not_available">Check your internet</string>
 
 </resources>

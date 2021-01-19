@@ -10,10 +10,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+import com.ankit.movielist.R
 import com.ankit.movielist.databinding.FragmentSearchBinding
 import com.ankit.movielist.di.search.inject
+import com.ankit.movielist.isNetworkAvailable
 import com.ankit.movielist.search.model.Search
 import com.ankit.movielist.ui.viewLifecycle
+import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -82,7 +85,17 @@ class SearchFragment : Fragment() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 userQuery = query
-                getQueryResults(userQuery)
+                userQuery?.let {
+                    if (isNetworkAvailable(requireContext())) {
+                        getQueryResults(it)
+                    } else {
+                        Snackbar.make(
+                            binding.root,
+                            getString(R.string.network_not_available),
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                }
                 return false
             }
 
@@ -92,9 +105,9 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private fun getQueryResults(query: String?) {
+    private fun getQueryResults(query: String) {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.getSearchResults(query!!.toString()).collectLatest {
+            viewModel.getSearchResults(query.toString()).collectLatest {
                 adapter.submitData(it)
             }
         }
