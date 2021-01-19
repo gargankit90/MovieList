@@ -7,6 +7,5 @@
     <string name="add_to_playlist">Add to playlist</string>
     <string name="remove_from_playlist">Remove from playlist</string>
     <string name="network_not_available">Check your internet</string>
-    <string name="something_went_wrong">Something went wrong</string>
     <string name="no_items_in_your_playlist">No items in your play list</string>
 </resources>

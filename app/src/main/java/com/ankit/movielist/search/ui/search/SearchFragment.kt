@@ -68,7 +68,7 @@ class SearchFragment : Fragment() {
             if (loadState is LoadState.Error) {
                 Snackbar.make(
                         binding.root,
-                        getString(R.string.something_went_wrong),
+                        loadState.error.localizedMessage,
                         Snackbar.LENGTH_LONG
                 ).show()
 
