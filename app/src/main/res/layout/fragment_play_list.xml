@@ -10,4 +10,15 @@
         android:layout_height="match_parent"
         android:id="@+id/playListRecyclerView"/>
 
+    <TextView
+        android:id="@+id/emptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/no_items_in_your_playlist"
+        tools:visibility="visible"/>
+
 </FrameLayout>

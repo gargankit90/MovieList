@@ -28,6 +28,12 @@ class PlayListFragment : Fragment() {
             adapter.playListItems = it
             adapter.notifyDataSetChanged()
         }
+
+        if (it.isNullOrEmpty()) {
+            binding.emptyState.visibility = View.VISIBLE
+        } else {
+            binding.emptyState.visibility = View.GONE
+        }
     }
 
     init {
