@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.ankit.movielist.R
@@ -97,6 +98,7 @@ class SearchFragment : Fragment() {
         binding.searchView.isIconifiedByDefault = false
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.submitData(lifecycle, PagingData.empty())
                 userQuery = query
                 userQuery?.let {
                     if (isNetworkAvailable(requireContext())) {
