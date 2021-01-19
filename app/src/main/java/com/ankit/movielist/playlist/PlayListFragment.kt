@@ -24,6 +24,7 @@ class PlayListFragment : Fragment() {
     private val adapter: PlayListAdapter = PlayListAdapter()
 
     private val playListItemsObserver = Observer<List<Search>?> {
+        binding.playListProgressBar.visibility = View.GONE
         if (it != null) {
             adapter.playListItems = it
             adapter.notifyDataSetChanged()
@@ -52,7 +53,11 @@ class PlayListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.playListItems.observe(viewLifecycleOwner, playListItemsObserver)
+        initializeRecyclerView()
         viewModel.getAllItems()
+    }
+
+    private fun initializeRecyclerView() {
         binding.playListRecyclerView.adapter = adapter
         val gridLayoutManager = GridLayoutManager(requireContext(), 2)
         binding.playListRecyclerView.layoutManager = gridLayoutManager

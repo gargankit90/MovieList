@@ -21,4 +21,10 @@
         android:text="@string/no_items_in_your_playlist"
         tools:visibility="visible"/>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/playListProgressBar"/>
+
 </FrameLayout>
