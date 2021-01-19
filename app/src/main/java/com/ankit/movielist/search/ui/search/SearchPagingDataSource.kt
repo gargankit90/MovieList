@@ -1,4 +1,4 @@
-package com.ankit.movielist.search
+package com.ankit.movielist.search.ui.search
 
 import androidx.paging.PagingSource
 import com.ankit.movielist.search.api.FIRST_PAGE

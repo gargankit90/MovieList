@@ -8,8 +8,6 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.ankit.movielist.di.FeatureScope
 import com.ankit.movielist.network.CoroutinesDispatcherProvider
-import com.ankit.movielist.search.PAGE_SIZE
-import com.ankit.movielist.search.SearchPagingDataSource
 import com.ankit.movielist.search.api.SearchApi
 import com.ankit.movielist.search.model.Search
 import javax.inject.Inject
