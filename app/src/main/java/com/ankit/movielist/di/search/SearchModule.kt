@@ -22,7 +22,7 @@ abstract class SearchModule {
     @Binds
     @IntoMap
     @ViewModelKey(SearchDetailViewModel::class)
-    internal abstract fun providePlayListViewModel(viewModel: SearchDetailViewModel): ViewModel
+    internal abstract fun provideSearchDetailViewModel(viewModel: SearchDetailViewModel): ViewModel
 }
 
 fun inject(searchFragment: SearchFragment) {

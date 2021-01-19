@@ -26,13 +26,15 @@ class SearchFragment : Fragment() {
     private val adapter: SearchAdapter = SearchAdapter(
         object : SearchItemOnClickListener {
             override fun onSearchItemClicked(searchItem: Search) {
-                val navDirection = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
+                val navDirection = SearchFragmentDirections
+                    .actionSearchFragmentToSearchDetailFragment(
                         searchItem
                     )
                 findNavController().navigate(navDirection)
             }
         }
     )
+
     private var binding: FragmentSearchBinding by viewLifecycle()
     private var userQuery: String? = null
 

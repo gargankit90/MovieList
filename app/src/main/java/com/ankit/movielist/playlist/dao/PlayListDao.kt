@@ -19,4 +19,7 @@ interface PlayListDao {
 
     @Query("SELECT * FROM $TABLE_NAME_PLAYLIST WHERE id = :id LIMIT 1")
     suspend fun getItemById(id: String): Search?
+
+    @Query("SELECT * FROM $TABLE_NAME_PLAYLIST")
+    suspend fun getAllItems(): List<Search>?
 }

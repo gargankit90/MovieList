@@ -21,7 +21,7 @@ class LoadingStateAdapter : LoadStateAdapter<LoadStateViewHolder>() {
     }
 
     override fun onBindViewHolder(
-            holder: LoadStateViewHolder,
-            loadState: LoadState
+        holder: LoadStateViewHolder,
+        loadState: LoadState
     ) = holder.bind(loadState)
 }
