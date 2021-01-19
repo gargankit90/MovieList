@@ -12,13 +12,16 @@ import kotlinx.parcelize.Parcelize
 @JsonClass(generateAdapter = true)
 data class GetSearchResponse(
     @Json(name = "Search")
-    val search: List<Search>,
+    val search: List<Search>?,
 
     @Json(name = "totalResults")
-    val totalResults: String,
+    val totalResults: String?,
 
     @Json(name = "Response")
-    val response: String
+    val response: String,
+
+    @Json(name = "Error")
+    val error: String?
 )
 
 @Entity(tableName = TABLE_NAME_PLAYLIST)

@@ -8,6 +8,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.ankit.movielist.R
@@ -20,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class SearchFragment : Fragment() {
 
@@ -61,6 +63,17 @@ class SearchFragment : Fragment() {
     }
 
     private fun initializeRecyclerView() {
+        adapter.addLoadStateListener {
+            val loadState = it.refresh
+            if (loadState is LoadState.Error) {
+                Snackbar.make(
+                        binding.root,
+                        getString(R.string.something_went_wrong),
+                        Snackbar.LENGTH_LONG
+                ).show()
+
+            }
+        }
         binding.searchResultRecyclerView.adapter =
             adapter.withLoadStateFooter(LoadingStateAdapter())
         initializeLayoutManager()

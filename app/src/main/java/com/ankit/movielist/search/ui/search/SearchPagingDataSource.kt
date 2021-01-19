@@ -4,14 +4,15 @@ import androidx.paging.PagingSource
 import com.ankit.movielist.search.api.FIRST_PAGE
 import com.ankit.movielist.search.api.SearchApi
 import com.ankit.movielist.search.model.Search
-import java.io.IOException
 import retrofit2.HttpException
 import timber.log.Timber
+import java.io.IOException
 
 const val PAGE_SIZE = 10
+
 class SearchPagingDataSource(
-    private val searchApi: SearchApi,
-    private val query: String
+        private val searchApi: SearchApi,
+        private val query: String
 ) : PagingSource<Int, Search>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Search> {
@@ -22,17 +23,29 @@ class SearchPagingDataSource(
             if (response.isSuccessful) {
                 val body = response.body()
                 body?.let {
-                    val nextPageNumber: Int? =
-                        if (pageNumber * PAGE_SIZE < it.totalResults.toInt()) {
-                            pageNumber + 1
-                        } else {
-                            null
-                        }
-                    return LoadResult.Page(
-                        data = it.search,
-                        prevKey = null,
-                        nextKey = nextPageNumber
-                    )
+
+                    it.error?.let { error ->
+                        return LoadResult.Error(Exception(error))
+                    }
+
+                    var nextPageNumber: Int? = null
+
+                    it.totalResults?.let { totalPageResults ->
+                        nextPageNumber =
+                                if (pageNumber * PAGE_SIZE < totalPageResults.toInt()) {
+                                    pageNumber + 1
+                                } else {
+                                    null
+                                }
+                    }
+
+                    it.search?.let { search ->
+                        return LoadResult.Page(
+                                data = search,
+                                prevKey = null,
+                                nextKey = nextPageNumber
+                        )
+                    }
                 }
                 return LoadResult.Error(Exception(response.message()))
             } else {
@@ -40,10 +53,15 @@ class SearchPagingDataSource(
                 return LoadResult.Error(IOException(response.message()))
             }
         } catch (e: IOException) {
+            Timber.e(e)
             // IOException for network failures.
             return LoadResult.Error(e)
         } catch (e: HttpException) {
+            Timber.e(e)
             // HttpException for any non-2xx HTTP status codes.
+            return LoadResult.Error(e)
+        } catch (e: Exception) {
+            Timber.e(e)
             return LoadResult.Error(e)
         }
     }
