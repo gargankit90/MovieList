@@ -3,8 +3,8 @@ package com.ankit.movielist.di.search
 import androidx.lifecycle.ViewModel
 import com.ankit.movielist.di.ComponentManager
 import com.ankit.movielist.di.ViewModelKey
-import com.ankit.movielist.search.ui.SearchFragment
-import com.ankit.movielist.search.ui.SearchViewModel
+import com.ankit.movielist.search.ui.search.SearchFragment
+import com.ankit.movielist.search.ui.search.SearchViewModel
 import com.ankit.movielist.search.ui.searchdetail.SearchDetailFragment
 import com.ankit.movielist.search.ui.searchdetail.SearchDetailViewModel
 import dagger.Binds

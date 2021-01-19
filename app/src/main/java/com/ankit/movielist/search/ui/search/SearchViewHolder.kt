@@ -1,4 +1,4 @@
-package com.ankit.movielist.search.ui
+package com.ankit.movielist.search.ui.search
 
 import androidx.recyclerview.widget.RecyclerView
 import com.ankit.movielist.R

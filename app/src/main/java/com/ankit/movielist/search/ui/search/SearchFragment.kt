@@ -1,4 +1,4 @@
-package com.ankit.movielist.search.ui
+package com.ankit.movielist.search.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,8 +26,7 @@ class SearchFragment : Fragment() {
     private val adapter: SearchAdapter = SearchAdapter(
         object : SearchItemOnClickListener {
             override fun onSearchItemClicked(searchItem: Search) {
-                val navDirection = SearchFragmentDirections
-                    .actionSearchFragmentToSearchDetailFragment(
+                val navDirection = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
                         searchItem
                     )
                 findNavController().navigate(navDirection)

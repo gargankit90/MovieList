@@ -1,4 +1,4 @@
-package com.ankit.movielist.search.ui
+package com.ankit.movielist.search.ui.search
 
 import androidx.core.view.isVisible
 import androidx.paging.LoadState

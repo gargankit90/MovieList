@@ -1,4 +1,4 @@
-package com.ankit.movielist.search.ui
+package com.ankit.movielist.search.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,7 +21,7 @@ class LoadingStateAdapter : LoadStateAdapter<LoadStateViewHolder>() {
     }
 
     override fun onBindViewHolder(
-        holder: LoadStateViewHolder,
-        loadState: LoadState
+            holder: LoadStateViewHolder,
+            loadState: LoadState
     ) = holder.bind(loadState)
 }
