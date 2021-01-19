@@ -27,12 +27,16 @@ class SearchDetailFragment : Fragment() {
     }
 
     private val addItemInPlayListObserver = Observer<Boolean> {
+        binding.searchDetailProgressBar.visibility = View.GONE
+        binding.searchDetailAddToPlayList.isEnabled = true
         if (it) {
             showRemoveFromPlayList()
         }
     }
 
     private val removeItemInPlayListObserver = Observer<Boolean> {
+        binding.searchDetailProgressBar.visibility = View.GONE
+        binding.searchDetailRemoveFromPlayList.isEnabled = true
         if (it) {
             showAddToPlayList()
         }
@@ -61,11 +65,15 @@ class SearchDetailFragment : Fragment() {
         viewModel.checkIfItemInPlayList(searchItem)
 
         binding.searchDetailAddToPlayList.setOnClickListener {
+            binding.searchDetailAddToPlayList.isEnabled = false
+            binding.searchDetailProgressBar.visibility = View.VISIBLE
             viewModel.addItemInPlayList(searchItem)
         }
         viewModel.addItem.observe(viewLifecycleOwner, addItemInPlayListObserver)
 
         binding.searchDetailRemoveFromPlayList.setOnClickListener {
+            binding.searchDetailRemoveFromPlayList.isEnabled = false
+            binding.searchDetailProgressBar.visibility = View.VISIBLE
             viewModel.removeItemFromPlayList(searchItem)
         }
         viewModel.removeItem.observe(viewLifecycleOwner, removeItemInPlayListObserver)
