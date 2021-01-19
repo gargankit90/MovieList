@@ -3,6 +3,7 @@ package com.ankit.movielist.di.search
 import com.ankit.movielist.di.AppComponent
 import com.ankit.movielist.di.FeatureScope
 import com.ankit.movielist.search.ui.SearchFragment
+import com.ankit.movielist.search.ui.searchdetail.SearchDetailFragment
 import dagger.Component
 
 @Component(
@@ -19,4 +20,5 @@ interface SearchComponent {
     }
 
     fun inject(searchFragment: SearchFragment)
+    fun inject(searchDetailFragment: SearchDetailFragment)
 }

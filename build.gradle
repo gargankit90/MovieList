@@ -27,6 +27,7 @@ buildscript {
             'okhttp'             : '4.8.1',
             'paging'             : '3.0.0-alpha11',
             'retrofit'           : '2.9.0',
+            'room'               : '2.2.6',
             'targetSdk'          : 30,
             'timber'             : '4.7.1',
     ]
